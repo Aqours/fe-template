@@ -1,10 +1,4 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "lib": [
-      "dom",
-      "esnext",
-      "scripthost"
-    ]
-  }
+  "files": [],
+  "references": []
 }
