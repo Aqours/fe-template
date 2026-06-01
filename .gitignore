@@ -189,3 +189,4 @@ pip-log.txt
 #################
 .env.local
 .env.*.local
+.pnpm-store
