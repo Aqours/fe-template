@@ -10,7 +10,7 @@
   "scripts": {
     "build:references": "tsc --build",
     "lint": "biome lint --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off",
-    "test": "vitest",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "prepare": "lefthook install"
   },
