@@ -1,0 +1,33 @@
+{
+  "name": "@fe-template/example",
+  "version": "0.1.0",
+  "description": "A publishable TypeScript example package used by the monorepo template.",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run build:bundle && pnpm run build:types",
+    "build:bundle": "vite build",
+    "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
+    "clean": "rimraf dist",
+    "dev": "vite build --watch",
+    "lint": "biome lint src --no-errors-on-unmatched --files-ignore-unknown=true --colors=off",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "vite": "^8.0.14"
+  }
+}
