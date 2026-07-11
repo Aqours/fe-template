@@ -1,5 +1,7 @@
 packages:
-  - 'app/*'
+  # 可发布的共享库工作区。
   - 'packages/*'
+  # 应用工作区；其 package.json 必须声明 private: true。
+  - 'app/*'
 allowBuilds:
   lefthook: true

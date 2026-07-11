@@ -60,4 +60,4 @@ pre-push:
     test:
       run: pnpm test
     typecheck:
-      run: pnpm exec tsc --noEmit
+      run: pnpm typecheck

@@ -8,11 +8,17 @@
     "node": ">=22"
   },
   "scripts": {
-    "build:references": "tsc --build",
-    "lint": "biome lint --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off",
-    "test": "vitest run",
-    "typecheck": "tsc --noEmit",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "clean": "turbo run clean",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release:check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "release": "pnpm release:check && changeset publish"
   },
   "browserslist": [
     "Firefox ESR",
