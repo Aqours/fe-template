@@ -21,7 +21,7 @@
     "build": "pnpm run build:bundle && pnpm run build:types",
     "build:bundle": "vite build",
     "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
-    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "clean": "rimraf dist",
     "dev": "vite build --watch",
     "lint": "biome lint src --no-errors-on-unmatched --files-ignore-unknown=true --colors=off",
     "test": "vitest run",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "rimraf": "^6.1.3",
     "vite": "^8.0.14",
     "vitest": "^4.1.11"
   }
