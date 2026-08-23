@@ -1,5 +1,5 @@
 {
-  "name": "@fe-template/example",
+  "name": "@repo/example",
   "version": "0.1.0",
   "description": "A publishable TypeScript example package used by the monorepo template.",
   "license": "ISC",
@@ -25,9 +25,11 @@
     "dev": "vite build --watch",
     "lint": "biome lint src --no-errors-on-unmatched --files-ignore-unknown=true --colors=off",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "vite": "^8.0.14"
+    "@repo/typescript-config": "workspace:*",
+    "vite": "^8.0.14",
+    "vitest": "^4.1.11"
   }
 }

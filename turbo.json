@@ -8,8 +8,8 @@
     "test": {
       "cache": false
     },
-    "typecheck": {
-      "dependsOn": ["^typecheck"],
+    "check-types": {
+      "dependsOn": ["^check-types"],
       "cache": false
     },
     "lint": {
