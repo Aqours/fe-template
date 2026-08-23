@@ -49,13 +49,28 @@ pnpm --filter './packages/*' lint
 ```json
 {
   "scripts": {
-    "build": "vite build",
-    "clean": "rimraf dist",
+    "build": "pnpm run build:bundle && pnpm run build:types",
+    "build:bundle": "vite build",
+    "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "dev": "vite build --watch",
     "lint": "biome lint src --no-errors-on-unmatched --files-ignore-unknown=true --colors=off",
     "test": "vitest run",
     "check-types": "tsc --noEmit"
   }
+}
+```
+
+这些 scripts 依赖 Vite、Vitest、TypeScript 和 Biome；新包应在自身的 `devDependencies` 中显式声明所使用的工具。类型构建还需要单独的 `tsconfig.build.json`，将声明文件写入发布目录：
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "exclude": ["src/**/*.test.ts"]
 }
 ```
 
